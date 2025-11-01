@@ -1,4 +1,5 @@
 --model to just test deprecation warning and reference of versioned model
+
 WITH BASE AS (
     select *
     from {{ ref('whale_alert') }}
