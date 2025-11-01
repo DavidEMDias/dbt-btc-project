@@ -33,4 +33,4 @@ SELECT
     output_address,
     output_value
 FROM flattened_outputs
-;
+
