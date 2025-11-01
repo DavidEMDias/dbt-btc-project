@@ -13,6 +13,7 @@ models:
           compare_model: ref('stg_btc_outputs_py')
   
   - name: whale_alert
+    latest_version: 1
     config:
       contract:
         enforced: true
@@ -28,6 +29,16 @@ models:
     - name: total_sent_usd
       data_type: float
 
+    versions:
+      - v: 1
+        deprecation_date: 2026-01-01
+        # Matches what's above
+      - v: 2
+        # Breaking change: removed total_sent_usd
+        columns:
+          - include: all
+            exclude: [total_sent_usd]
+
 exposures:
 
   - name: btc_whale_alert_exposure
@@ -39,7 +50,7 @@ exposures:
       BTC Whale alert transactions report?
 
     depends_on:
-      - ref('whale_alert')
+      - ref('whale_alert', v=1)
 
     owner:
       name: David Dias
