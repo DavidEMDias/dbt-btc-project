@@ -20,7 +20,15 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 
 <img width="800" height="593" alt="image" src="https://github.com/user-attachments/assets/6b17d0cd-81a9-42e6-a6a2-ee5cd5e1fe01" />
 
+### 💡 **Architecture Explanation**
 
+- **AWS S3** → Public Bitcoin transaction data source (Parquet). 
+- **Snowflake (Raw)** → Stores raw transaction data exactly as ingested.  
+- **dbt (Core)** → Applies transformations, modular modeling, and data quality tests.  
+- **Snowflake (Marts)** → Final clean, analysis-ready tables.  
+- **GitHub Actions** → Runs CI/CD pipelines: tests, builds, and deployments.  
+- **Looker Studio** → Visualization and analysis layer consuming Snowflake data.
+  
 ## 🛠 Technologies / Dependencies
 
 | Technology / Tool | Purpose |
