@@ -18,7 +18,8 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 
 ## 🏗️ Architecture
 
-<img width="800" height="593" alt="image" src="https://github.com/user-attachments/assets/6b17d0cd-81a9-42e6-a6a2-ee5cd5e1fe01" />
+<img width="800" height="576" alt="image" src="https://github.com/user-attachments/assets/39016e64-99e1-4bf8-85df-6dd82f2fb47f" />
+
 
 ### 💡 **Architecture Explanation**
 
@@ -26,7 +27,7 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 - **Snowflake (Raw)** → Stores raw transaction data exactly as ingested.  
 - **dbt (Core)** → Applies transformations, modular modeling, and data quality tests.  
 - **Snowflake (Marts)** → Final clean, analysis-ready tables.  
-- **GitHub Actions** → Runs CI/CD pipelines: tests, builds, and deployments.  
+- **GitHub Actions** → Runs CI pipeline: tests, builds, and deployments.  
 - **Looker Studio** → Visualization and analysis layer consuming Snowflake data.
   
 ## 🛠 Technologies / Dependencies
