@@ -29,6 +29,11 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 - **Snowflake (Marts)** → Final clean, analysis-ready tables.  
 - **GitHub Actions** → Runs CI pipeline: tests, builds, and deployments.  
 - **Looker Studio** → Visualization and analysis layer consuming Snowflake data.
+
+Note: Snowflake contained 3 Schemas (Similar to medallion architecture):
+  - BTC (raw data - bronze)
+  - DBT_DAVID_DEV (cleaned data - silver)
+  - PROD (enriched data - gold)
   
 ## 🛠 Technologies / Dependencies
 
