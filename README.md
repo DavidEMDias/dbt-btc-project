@@ -1,4 +1,4 @@
-<img width="809" height="631" alt="image" src="https://github.com/user-attachments/assets/9bad17e8-eed8-4140-b477-a98e86077fc4" />## 🧠 Summary
+## 🧠 Summary
 
 This project consists of a data pipeline for ingesting, transforming, and delivering Bitcoin transaction data, with a focus on detecting “whales” — that is, movements of large amounts.  
 The data is loaded into **Snowflake**, transformed using **dbt (core)** following **CI/CD practices (via GitHub Actions)**, and exposed for visual consumption through a dashboard (e.g., **Looker Studio**).
