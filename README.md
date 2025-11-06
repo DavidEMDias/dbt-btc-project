@@ -1,4 +1,4 @@
-## 🧠 Summary
+<img width="809" height="631" alt="image" src="https://github.com/user-attachments/assets/9bad17e8-eed8-4140-b477-a98e86077fc4" />## 🧠 Summary
 
 This project consists of a data pipeline for ingesting, transforming, and delivering Bitcoin transaction data, with a focus on detecting “whales” — that is, movements of large amounts.  
 The data is loaded into **Snowflake**, transformed using **dbt (core)** following **CI/CD practices (via GitHub Actions)**, and exposed for visual consumption through a dashboard (e.g., **Looker Studio**).
@@ -60,3 +60,6 @@ Note: Snowflake contained 3 Schemas (Similar to medallion architecture):
 | **dbt Exposure** | Created **exposures** to explicitly link dbt models to the final **dashboard**, ensuring traceability and visibility of data lineage. |
 | **Model Contracts** | Defined **model contracts** to guarantee schema stability; versioning via **dbt versions** was used to manage controlled model evolution. |
 | **Continuous Integration (GitHub Actions)** | Implemented CI/CD pipelines with automated testing, linting, and deployment using GitHub Actions to ensure stable, production-ready releases. |
+
+
+Next Steps: Continuous Loading with Snowpipe - as soon as there is a file uploaded to S3 Bucket -> s3 sends an event to SQS(aws simple queue service) -> Snowpipe will be listening to events on SQS -> as soon as there is a message in SQS snowpipe gets triggered and runs copy into command to raw_table(variant data type).
