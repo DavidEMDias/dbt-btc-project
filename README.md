@@ -64,4 +64,6 @@ Note: Snowflake contained 3 Schemas (Similar to medallion architecture):
 
 Next Steps: Continuous Loading with Snowpipe - as soon as there is a file uploaded to S3 Bucket -> s3 sends an event to SQS(aws simple queue service) -> Snowpipe will be listening to events on SQS -> as soon as there is a message in SQS snowpipe gets triggered and runs copy into command from stage to btc_raw_table (with a structure already defined).
 
+Could make sense to apply a stream to btc_raw_table which would have (one column data type variant) and use Change Data Capture (CDC) technique to MERGE to final btc_table.
+
 The upload of the file to the s3 bucket can also be automated - possible solution AWS Lambda to host and run python script.
