@@ -72,7 +72,7 @@ Snowpipe is triggered by sqs -> Copy INTO command the data from the stage to raw
 Stream on raw table records changes
 Task is triggered to MERGE changes into BTC table (runs when STREAM has data)
 Task to trigger dbt prod job (UDF with API call)
-GitHub actions ci
+GitHub actions ci/cd
 
 
 The upload of the file to the s3 bucket can also be automated - possible solution AWS Lambda to host and run python script.
