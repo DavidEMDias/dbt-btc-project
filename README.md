@@ -50,7 +50,7 @@ Note: Snowflake contained 3 Schemas (Similar to medallion architecture):
 
 | Technique | Description |
 |------------|--------------|
-| **Data Quality Tests (singular & generic)** | Ensures data reliability by validating integrity, uniqueness, and referential consistency through both custom (singular) and reusable (generic) dbt tests. |
+| **Data Quality Tests (singular & generic)** | Ensures data reliability by validating integrity, uniqueness, and referential consistency through both generic tests and reusable (custom generic) dbt tests. |
 | **Modularization** | Structured models in layered architecture — **staging → marts** — improving readability, maintainability, and performance. |
 | **Documentation in dbt** | Auto-generate browsable documentation via `dbt docs generate`. |
 | **Incremental Models** | Implemented incremental logic in dbt models to process only new or updated records, improving performance and efficiency. |
