@@ -30,10 +30,15 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 - **GitHub Actions** → Runs CI pipeline: tests, builds, and deployments.  
 - **Looker Studio** → Visualization and analysis layer consuming Snowflake data.
 
-Note: Snowflake contained 3 Schemas (Similar to medallion architecture):
-  - BTC (raw data - bronze)
-  - DBT_DAVID_DEV (cleaned data - silver)
-  - PROD (enriched data - gold)
+**Source/Ingestion:** Consuming data from an S3 Bucket (the origin of the raw data).
+**Load/Move:** Loading the data into Snowflake (the destination for raw storage and initial processing).
+**Transform/Process:** Transforming the data with dbt (Data Build Tool) within Snowflake (the core processing logic).  
+**Destination/Storage:** Materializing the final tables in Snowflake (the destination where clean, ready-to-use data resides).
+
+ELT (Extract, Load, Transform) paradigm:
+**Extract (E):** Data is read from the S3 Bucket.
+**Load (L):** Data is loaded into the Snowflake data warehouse.
+**Transform (T):** Data is transformed inside the data warehouse using dbt, leveraging Snowflake's compute power.  
   
 ## 🛠 Technologies / Dependencies
 
