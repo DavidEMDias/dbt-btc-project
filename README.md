@@ -36,9 +36,9 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 **Destination/Storage:** Materializing the final tables in Snowflake (the destination where clean, ready-to-use data resides).
 
 ELT (Extract, Load, Transform) paradigm:
-**Extract (E):** Data is read from the S3 Bucket.
-**Load (L):** Data is loaded into the Snowflake data warehouse.
-**Transform (T):** Data is transformed inside the data warehouse using dbt, leveraging Snowflake's compute power.  
+- **Extract (E):** Data is read from the S3 Bucket.
+- **Load (L):** Data is loaded into the Snowflake data warehouse.
+- **Transform (T):** Data is transformed inside the data warehouse using dbt, leveraging Snowflake's compute power.  
   
 ## 🛠 Technologies / Dependencies
 
