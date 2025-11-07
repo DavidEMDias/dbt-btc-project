@@ -66,4 +66,13 @@ Next Steps: Continuous Loading with Snowpipe - as soon as there is a file upload
 
 Could make sense to apply a stream to btc_raw_table which would have (one column data type variant) and use Change Data Capture (CDC) technique to MERGE to final btc_table.
 
+Summary:
+Upload to s3 Bucket (sends event to sqs)
+Snowpipe is triggered by sqs -> Copy INTO command the data from the stage to raw BTC table
+Stream on raw table records changes
+Task is triggered to MERGE changes into BTC table (runs when STREAM has data)
+Task to trigger dbt prod job (UDF with API call)
+GitHub actions ci
+
+
 The upload of the file to the s3 bucket can also be automated - possible solution AWS Lambda to host and run python script.
