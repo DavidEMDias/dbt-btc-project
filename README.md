@@ -32,7 +32,7 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 
 **Source/Ingestion:** Consuming data from an S3 Bucket (the origin of the raw data).
 **Load/Move:** Loading the data into Snowflake (the destination for raw storage and initial processing).
-**Transform/Process:** Transforming the data with dbt (Data Build Tool) within Snowflake (the core processing logic).  
+**Transform/Process:** Transforming the data with dbt (Data Build Tool) within Snowflake (the core processing logic). 
 **Destination/Storage:** Materializing the final tables in Snowflake (the destination where clean, ready-to-use data resides).
 
 ELT (Extract, Load, Transform) paradigm:
