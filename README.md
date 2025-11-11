@@ -30,6 +30,15 @@ The result is an **end-to-end data infrastructure** for analyzing large Bitcoin 
 - **GitHub Actions** → Runs CI pipeline: tests, builds, and deployments.  
 - **Looker Studio** → Visualization and analysis layer consuming Snowflake data.
 
+  Raw Details
+  - Upload to s3 Bucket (sends event to sqs)
+  - Snowpipe is triggered by sqs -> Copy INTO command the data from the stage to raw BTC table (VARIANT column)
+  - Stream on raw table records changes
+  - Task is triggered to MERGE-command changes into BTC table (runs when STREAM has data) - Change Data Capture (CDC) technique
+  - Task to trigger dbt prod job (UDF with API call)
+  - GitHub actions CI/CD workflow dynamically identifies which environment dbt should target (through branch used).
+  
+
 ELT (Extract, Load, Transform) paradigm:
 - **Source/Ingestion:** Consuming data from an S3 Bucket (the origin of the raw data).
 - **Load/Move:** Loading the data into Snowflake (the destination for raw storage and initial processing).
@@ -67,16 +76,5 @@ ELT (Extract, Load, Transform) paradigm:
 | **Continuous Integration (GitHub Actions)** | Implemented CI/CD pipelines with automated testing, linting, and deployment using GitHub Actions to ensure stable, production-ready releases. |
 
 
-
-Could make sense to apply a stream to btc_raw_table which would have (one column data type variant) and use Change Data Capture (CDC) technique to MERGE to final btc_table.
-
 Summary of next steps:
-- Upload to s3 Bucket (sends event to sqs)
-- Snowpipe is triggered by sqs -> Copy INTO command the data from the stage to raw BTC table
-- Stream on raw table records changes
-- Task is triggered to MERGE changes into BTC table (runs when STREAM has data) - Change Data Capture (CDC) technique
-- Task to trigger dbt prod job (UDF with API call)
-- GitHub actions ci/cd
-
-
 The upload of the file to the s3 bucket can also be automated - possible solution AWS Lambda to host and run python script.
